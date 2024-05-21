@@ -180,9 +180,11 @@ def showGameOverScreen(crashInfo):
     if VERBOSE:
         score = crashInfo["score"]
         print(str(bot.gameCNT - 1) + " | " + str(score))
+        
+    if bot.gameCNT%100 == 0:
+        bot.dump_qvalues()
 
     if bot.gameCNT == (ITERATIONS):
-        bot.dump_qvalues(force=True)
         sys.exit()
 
 

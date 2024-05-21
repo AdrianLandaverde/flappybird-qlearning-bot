@@ -115,9 +115,7 @@ class Bot(object):
         """
         if self.gameCNT % self.DUMPING_N == 0 or force:
             qvalues_files = os.listdir("data/qvalues")
-            qvalues_files.sort()
-            last_file = qvalues_files[-1]
-            last_num = int(last_file.split(".")[0].split("qvalues")[1])
+            last_num= len(qvalues_files) - 1
             fil = open("data/qvalues/qvalues" + str(last_num + 1) + ".json", "w")
             json.dump(self.qvalues, fil)
             fil.close()
